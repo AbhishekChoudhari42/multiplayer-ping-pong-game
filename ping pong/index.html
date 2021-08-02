@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            box-sizing: border-box;
+            margin: 0%;
+            padding: 0%;
+            width: 100vw;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            background-color: rgb(43, 43, 43);
+            background-image: linear-gradient(to left bottom , rgba(86, 86, 255, 0.966),rgb(139, 0, 194));
+            font-family: 'montserrat';
+            font-weight: 800;
+        }
+        /* 👀 */
+        .score{
+            position: absolute;
+            font-size: 3em;
+            font-weight: 900;
+            color: white;
+            top:calc(50% - 2em);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+      
+            margin: 0;
+            padding: 0;
+        }
+        .score h2{
+            font-size: 0.5em;
+            font-weight: 500;
+           
+        }
+        .score span{
+            background-color: black;
+            padding: 0.4rem;
+            border-radius: 3px;
+        }
+        .score1{
+            left:40px;
+        }
+        .score2{
+            right:40px;
+        }
+        .p5Canvas{
+            border-radius: 1%;
+        }
+        .gameover{
+            position: absolute;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width:100%;
+            height:100vh;
+           background-color: rgba(2, 2, 2, 0.5);
+           backdrop-filter: blur(10px);
+
+
+            font-size: 3rem;
+            font-weight: 800;
+            z-index: 100 ;
+            color: white;
+
+            transform: translate(0,-100%);
+         
+        }
+        .gameover .replay{
+            margin-top: 1em;
+            background-color: red;
+            --red : red;
+            box-shadow: 2px 2px 10px var(--red),2px 2px 10px var(--red),2px 2px 10px var(--red),2px 2px 10px var(--red);
+            border-radius: 10px;
+            padding: 0.2em;
+            cursor: pointer;
+        }
+        .slidedown{
+            transform: translate(0,0%);
+
+            animation: slide 2s ease;
+        }
+        @keyframes slide{
+            0%{
+                transform: translate(0,-100%);
+            }
+            100%{
+                transform: translate(0,0%);
+               
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="audioeffects">
+        <div class="gamefinish">
+            <audio class="gameoversound" src="./Sound/gameover.aac"></audio>
+            <audio class="ballmiss" src="./Sound/ballmiss.aac"></audio>
+            <audio class="ballhit" src="./Sound/ballhit.aac"></audio>
+        </div>
+    </div>
+    <div class="gameover ">
+        <div class="result">Player <span>00</span> Won</div>
+        <div class="replay">Replay</div>
+    </div>
+    <div class="score1 score">
+      <!-- <h6>you</h6> -->
+        <h2>Player 1 : <span>00</span> </h2>
+    </div>
+    <div class="score2 score">
+      <!-- <h6>other player</h6> -->
+        <h2>Player 2 : <span>00</span>  </h2>
+    </div>
+</body>
+<script src="./p5.min.js"></script>
+
+<script src="./Object.js"></script>
+<script src="./script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js"></script>
+</html>
